@@ -32,14 +32,17 @@ public class RCTUIManager {
         }
     }
 
-    public void manageChildren(int[] moveFromIndices,
-                               int[] moveToIndices,
-                               int[] addReactChildTags,
-                               int[] addAtIndices) {
+    public void manageChildren(
+            int[] moveFromIndices,
+            int[] moveToIndices,
+            int[] addReactChildTags,
+            int[] addAtIndices
+    ) {
         for (int i = 0; i < addAtIndices.length; i++) {
             View view = viewRegistry.get(addReactChildTags[i]);
             if (view != null) {
-                rootView.addView(view,
+                rootView.addView(
+                        view,
                         addAtIndices[i],
                         new RCTRootView.LayoutParams(
                                 RCTRootView.LayoutParams.MATCH_PARENT,
