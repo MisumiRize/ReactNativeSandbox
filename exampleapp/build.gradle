@@ -6,7 +6,7 @@ buildscript {
         classpath 'com.android.tools.build:gradle:1.1.1'
     }
 }
-apply plugin: 'com.android.library'
+apply plugin: 'com.android.application'
 
 repositories {
     jcenter()
@@ -17,6 +17,7 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
+        applicationId "com.reactnative.exampleapp"
         minSdkVersion 9
         targetSdkVersion 21
         versionCode 1
@@ -33,12 +34,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
 }
 
 dependencies {
-    compile 'com.android.support:gridlayout-v7:22.0.0'
-    compile 'com.android.support:support-v4:22.0.0'
-    compile 'com.android.support:appcompat-v7:22.0.0'
     compile 'org.mozilla:rhino:1.7R5'
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }

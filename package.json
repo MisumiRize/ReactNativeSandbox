@@ -1,10 +1,10 @@
 {
-  "name": "ReactNative",
+  "name": "ReactNativeSandbox",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "exampleapp/index.android.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "browserify . -o exampleapp/src/main/assets/index.android.bundle"
   },
   "author": "",
   "license": "ISC",

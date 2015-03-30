@@ -1,8 +1,23 @@
+var ReactReconciler = require('react/lib/ReactReconciler');
 var ReactUpdates = require('react/lib/ReactUpdates');
+
+var emptyObject = require('react/lib/emptyObject');
 var instantiateReactComponent = require('react/lib/instantiateReactComponent');
 
 function instanceNumberToChildRootID(rootNodeID, instanceNubmer) {
   return rootNodeID + '[' + instanceNubmer + ']';
+}
+
+function mountComponentIntoNode(
+    componentInstance,
+    rootID,
+    container,
+    transaction) {
+  var markup = ReactReconciler.mountComponent(
+    componentInstance, rootID, transaction, emptyObject
+  );
+  componentInstance._isTopLevel = true;
+  ReactAndroidMount._mountImageIntoNode(markup, container);
 }
 
 function batchedMountComponentIntoNode(
@@ -43,7 +58,18 @@ var ReactAndroidMount = {
       childRootNodeID,
       topRootNodeID
     );
+  },
+
+  _mountImageIntoNode: function(mountImage, containerID) {
+    var addChildTags = [mountImage.tag];
+    var addAtIndices = [0];
+    RCTUIManager.manageChildren(
+      null,
+      null,
+      addChildTags,
+      addAtIndices
+    );
   }
 };
 
-module.exrpots = ReactAndroidMount;
+module.exports = ReactAndroidMount;

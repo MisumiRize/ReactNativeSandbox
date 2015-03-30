@@ -11,6 +11,10 @@ ReactAndroidNativeComponent.Mixin = {
     this._currentElement = element;
   },
 
+  receiveComponent: function(nextElement, transaction, context) {
+    console.log(nextElement);
+  },
+
   unmountComponent: function() {
     this.unmountChildren();
     this._rootNodeID = null;
@@ -22,7 +26,7 @@ ReactAndroidNativeComponent.Mixin = {
     var tag = tagCount;
     tagCount++;
 
-    RCTUIManager.createView(tag, this.viewConfig.uiViewClassName, {});
+    RCTUIManager.createView(tag, this.viewConfig.uiViewClassName);
     return {
       rootNodeID: rootID,
       tag: tag

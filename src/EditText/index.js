@@ -1,16 +1,17 @@
-var React = require('react');
+var React = require('../ReactAndroid');
 
 var createReactAndroidNativeComponentClass = require('../ReactAndroid/createReactAndroidNativeComponentClass');
 
 var viewConfig = {
-  uiViewClassName: 'com.reactnative.reactnativeexample.widget.RCTEditText'
+  uiViewClassName: 'com.reactnative.exampleapp.RCTEditText'
 };
 
 var RCTEditText = createReactAndroidNativeComponentClass(viewConfig);
 
-var Text = React.createElement({
+var EditText = React.createClass({
   render: function() {
     return React.createElement(RCTEditText);
   }
 });
 
+module.exports = EditText;

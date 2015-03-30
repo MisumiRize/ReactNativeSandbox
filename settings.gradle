@@ -1,2 +1,1 @@
-include ':reactnative'
-include ':reactnativeexample'
+include ':exampleapp'
