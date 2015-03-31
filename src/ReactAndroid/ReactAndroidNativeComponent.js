@@ -12,7 +12,7 @@ ReactAndroidNativeComponent.Mixin = {
   },
 
   receiveComponent: function(nextElement, transaction, context) {
-    console.log(nextElement);
+    // not implemented yet
   },
 
   unmountComponent: function() {
